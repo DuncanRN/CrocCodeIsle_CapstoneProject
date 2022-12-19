@@ -1,0 +1,21 @@
+# Ignore all files...
+*.*
+
+# ...except the ones we want
+!.gitignore
+!App.js
+!/containers
+!/containers/*
+!/components/*
+!/components/assets/*
+!/components/islandcontainer/*
+!/components/logo/*
+!/components/navbar/*
+!/components/questioncontainer/*
+!/components/scores/*
+!/components/services/*
+!/components/setup/*
+!/components/styles/*
+
+
+

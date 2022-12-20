@@ -2,7 +2,7 @@
 
 A Duolingo style app for programming languages. Written in React-Native, Java and Javascript.
 
-<img src="https://github.com/DuncanRN/CrocCodeIsle_CapstoneProject/blob/main/CCI_FrontEnd/screenshots/2_put_together.jpeg" alt="Croc Code Isle Gameplay 1" width=80% height=80%>
+<img src="https://github.com/DuncanRN/CrocCodeIsle_CapstoneProject/blob/main/CCI_FrontEnd/screenshots/4TOGETHER.jpg" alt="Croc Code Isle Gameplay 1" width=80% height=80%>
 
 The user inputs ther name, choose a language and works through unlocking new islands.
 

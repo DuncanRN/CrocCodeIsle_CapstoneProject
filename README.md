@@ -8,5 +8,6 @@ afdsdsf
 
 asdfsadf
 
+https://github.com/DuncanRN/CrocCodeIsle_CapstoneProject/blob/main/CCI_FrontEnd/screenshots/3TOGETHER.jpg
 
-<img src="https://github.com/DuncanRN/CrocCodeIsle_CapstoneProject/blob/main/CCI_FrontEnd/screenshots/1_put_together.jpeg" alt="Croc Code Isle Gameplay 2" width=80% height=80%>
+<img src="https://github.com/DuncanRN/CrocCodeIsle_CapstoneProject/blob/main/CCI_FrontEnd/screenshots/3TOGETHER.jpg" alt="Croc Code Isle Gameplay 2" width=80% height=80%>

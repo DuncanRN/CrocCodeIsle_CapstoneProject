@@ -8,5 +8,15 @@ The user inputs ther name, choose a language and works through unlocking new isl
 
 <img src="https://github.com/DuncanRN/CrocCodeIsle_CapstoneProject/blob/main/CCI_FrontEnd/screenshots/3TOGETHER.jpg" alt="Croc Code Isle Gameplay 2" width=80% height=80%>
 
-They answer questions to score points and level up as seen in the xp bar at the top. They can then compare their scores with other players.
+They answer questions to score points and level up as seen in the xp bar at the top. 
 
+They can then compare their scores with other players.
+
+
+## Presentation Video
+
+* to be added *
+
+## Installation Instructions
+
+* to be added *

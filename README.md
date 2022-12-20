@@ -1,4 +1,4 @@
-### CrocCodeIsle 
+## CrocCodeIsle 
 
 A Duolingo style app for programming languages. Written in React-Native, Java and Javascript.
 

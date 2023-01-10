@@ -87,13 +87,13 @@ const MainContainer = () => {
   };
 
 
-  const getIslandsCompleted = function(){
+  const getIslandsCompleted = function(idToAddToState){
     // I only want to get here if we can see the userId.
     // do we passs in the user id from where we are seting the userID, don't take it from state
     // take it as an arguement
-    console.log("about to fetch and userId is " + userId);
+    console.log("about to fetch and userId is " + idToAddToState);
 
-    fetch("http://localhost:8080/islandscompleted/" + userId)
+    fetch("http://localhost:8080/islandscompleted/" + idToAddToState)
     .then(res => res.json())
     .then((data) => {  setIslandsCompleted(data); 
                         setIsLoadingIslandsCompleted(false); 
@@ -330,10 +330,9 @@ const MainContainer = () => {
           determineUserTotalExperience={determineUserTotalExperience}
           determineUserLevel={determineUserLevel}
 
-
-
           islandsCompleted= {islandsCompleted}
           assignIslandsCompleted = {assignIslandsCompleted}
+
           />
       </SafeAreaView>
     );

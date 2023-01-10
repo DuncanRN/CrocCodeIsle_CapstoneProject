@@ -8,15 +8,17 @@ import Padlock from '../assets/Padlock.png'
 const IslandContainer = ({islands, 
                             language, 
                             islandsCompleted,
-                            name,
                             userTotalExperience,
                             selectIsland, 
                             assignCurrentQuestion}) => {
 
+    var previousIslandId = -1; 
+    var completedIslandsArray = islandsCompleted.toString().split(',');
+    // console.log("completedIslandsArray : " + completedIslandsArray);
+
     const islandToMap = Object.entries(islands)
     const islandItems= islandToMap.map((islandData, index) => {
         
-
 
         if (language == islandData[1]['language']) {
             var align;
@@ -25,40 +27,16 @@ const IslandContainer = ({islands,
             else if(index%3 == 2){ align="center"; } 
 
             thisIslandID = islandData[1]['id'];
-
-            if(userTotalExperience>80 )
-            {
-                return (
-                    <Island 
-                        islandData={islandData} 
-                        key={index} 
-                        align={align}
-
-                        selectIsland={selectIsland} 
-                        assignCurrentQuestion={assignCurrentQuestion} />  
-                
-
-                )
-            }
             
-            else if(thisIslandID==1 || thisIslandID==4)
+
+            // console.log("in island view, here is islandsCompleted : " + islandsCompleted);
+
+            // console.log("in island view, here is completedIslandsArray : " + completedIslandsArray);
+            // console.log("and I am testing if that contains " + previousIslandId);
+            if(previousIslandId == -1 || completedIslandsArray.includes(previousIslandId.toString()))
             {
-
-                return (
-                    <Island 
-                        islandData={islandData} 
-                        key={index} 
-                        align={align}
-
-                        selectIsland={selectIsland} 
-                        assignCurrentQuestion={assignCurrentQuestion} />  
-                
-
-                )
-            }
-            else if(thisIslandID==2 && userTotalExperience>40)
-            {
-
+                // console.log("we should be displaying island id " + thisIslandID);
+                previousIslandId = thisIslandID;
                 return (
                     <Island 
                         islandData={islandData} 
@@ -72,11 +50,69 @@ const IslandContainer = ({islands,
                 )
             }
             else{
+                previousIslandId = thisIslandID;
                 return (
-                    // <Text>PADLOCKED ISLAND</Text>
-                    <Image source={Padlock}  style={Style.Padlock} />
+                    <Image source={Padlock} style={Style.Padlock} />
                 )
             }
+
+        
+
+            
+
+            // ----
+
+            // if(userTotalExperience>80 )
+            // {
+            //     return (
+            //         <Island 
+            //             islandData={islandData} 
+            //             key={index} 
+            //             align={align}
+
+            //             selectIsland={selectIsland} 
+            //             assignCurrentQuestion={assignCurrentQuestion} />  
+                
+
+            //     )
+            // }
+            
+            // else if(thisIslandID==1 || thisIslandID==4)
+            // {
+
+            //     return (
+            //         <Island 
+            //             islandData={islandData} 
+            //             key={index} 
+            //             align={align}
+
+            //             selectIsland={selectIsland} 
+            //             assignCurrentQuestion={assignCurrentQuestion} />  
+                
+
+            //     )
+            // }
+            // else if(thisIslandID==2 && userTotalExperience>40)
+            // {
+
+            //     return (
+            //         <Island 
+            //             islandData={islandData} 
+            //             key={index} 
+            //             align={align}
+
+            //             selectIsland={selectIsland} 
+            //             assignCurrentQuestion={assignCurrentQuestion} />  
+                
+
+            //     )
+            // }
+            // else{
+            //     return (
+            //         // <Text>PADLOCKED ISLAND</Text>
+            //         <Image source={Padlock}  style={Style.Padlock} />
+            //     )
+            // }
 
 
 

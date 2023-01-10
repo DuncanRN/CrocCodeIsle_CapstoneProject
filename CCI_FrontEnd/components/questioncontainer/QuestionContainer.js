@@ -22,7 +22,8 @@ const QuestionContainer = ({
     determineUserLevel,
 
     islandsCompleted,
-    assignIslandsCompleted
+    assignIslandsCompleted,
+
 }) => {
 
     const questionsToMap = Object.entries(islands)
@@ -53,6 +54,8 @@ const QuestionContainer = ({
                     
                     islandsCompleted= {islandsCompleted}
                     assignIslandsCompleted = {assignIslandsCompleted}
+
+                    
 
                     />
             )

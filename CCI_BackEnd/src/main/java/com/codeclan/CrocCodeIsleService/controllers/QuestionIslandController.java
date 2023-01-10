@@ -24,5 +24,4 @@ public class QuestionIslandController {
         return new ResponseEntity<>(questionIslandRepository.findQuestionIslandById(id), HttpStatus.OK);
     }
 
-
 }

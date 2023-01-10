@@ -18,44 +18,11 @@ const FinishedBox = ({
     islandsCompleted,
     assignIslandsCompleted
 
+
 }) => {
 
     console.log(" ");
-
-    // const keys = islandsCompleted[0].keys();
-    // console.log("keys " + keys)
-    // console.log("islandsCompleted[0]['id'] = " + islandsCompleted[0]['id']);
-
-    console.log("islandsCompleted = " + islandsCompleted);
-    console.log("islandsCompleted[0] = " + islandsCompleted[0]);
-    console.log("islandsCompleted[1] = " + islandsCompleted[1]);
-
-    // var str = JSON.stringify(islandsCompleted);
-
-    console.log(JSON.stringify(islandsCompleted, null, 4));
-
-    // var keys = islandsCompleted.keys();
-
-    // console.log("keys = " + keys);
-
-    // console.log("string - " + str)
-
-    // console.log("islandsCompleted[0]['island_id'] = " + islandsCompleted[0]['island_id']);
-
-    // var str = JSON.stringify(islandsCompleted[0]);
-    // console.log("string - " + str)
-
-    // this is what's in islandsCompleted[0]
-
-    // I'd like it if islandsCompleted was only for our current userID
-
-    // {"id":1,
-    // "user":{"id":1,"name":"Octopus","points":90},
-    // "questionIsland":{"id":1,"language":"Python","name":"Outputs and Variables",
-    //                     "questions":[
-    //                                     {"id":1,"question_position":1,"question_type":"multiple_choice","question_text":"Output the string:","question_code":"_____('Hello')","points_value":10,"response1":"print","response2":"console","response3":"system.out","response4":"output","correct_response":1},
-    //                                     {"id":2,"question_position":2,"question_type":"fill_blank","question_text":"Declare the variable:","question_code":"colin _ 'crocodile'","points_value":20,"response1":"is a","response2":"-","response3":"=","response4":":","correct_response":3},
-    //                                     {"id":3,"question_position":3,"question_type":"text_input","question_text":"Output variable value:","question_code":"palm = 'tree' \n print (____)","points_value":30,"response1":"palm","response2":"","response3":"","response4":"","correct_response":1}]}}
+    console.log(" islands completed : " + JSON.stringify(islandsCompleted, null, 4));
 
 
     console.log(" ");
@@ -74,33 +41,21 @@ const FinishedBox = ({
             IslandCompletedService.addIslandCompleted(payload);
 
             // then in state
-            console.log("___");
-            console.log("selectedIsland : " + selectedIsland);
-            console.log("userId : " + userId);
-            console.log("___");
 
-            // do we just reload the islands 
 
+            // console.log("FINISHING ISLAND___");
+            // console.log("selectedIsland : " + selectedIsland);
+            // console.log("userId : " + userId);
+            // console.log("ABOUT TO RELOAD FROM BACKEND___");
+            // console.log("islandsCompleted" + islandsCompleted);
+
+            const tempIslandsCompleted = islandsCompleted + "," + selectedIsland;
             
-    
-            // this is ouputing what we want.
-
-
-
-            // we can send this to the DB 
-            // {
-            //     "user": {
-            //         "id": 2
-            //     },
-            //     "questionIsland": {
-            //         "id": 5
-            //     }
-            // }
+            assignIslandsCompleted(tempIslandsCompleted);
 
             assignCurrentQuestion(1)
 
             selectIsland(null)
-
 
         };
         assignIsQuestionAnswered(false)

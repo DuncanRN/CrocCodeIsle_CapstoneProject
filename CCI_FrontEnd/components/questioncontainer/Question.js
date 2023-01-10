@@ -23,7 +23,9 @@ const Question = ({
     determineUserLevel,
 
     islandsCompleted,
-    assignIslandsCompleted
+    assignIslandsCompleted,
+
+
 
 
 }) => {
@@ -180,6 +182,7 @@ const Question = ({
 
                     islandsCompleted = {islandsCompleted}
                     assignIslandsCompleted = {assignIslandsCompleted}
+
                 />
 
             </SafeAreaView>

@@ -3,7 +3,12 @@ import { View, TextInput } from 'react-native';
 import Style from '../styles/Style';
 import UserService from '../services/UserService';
 
-const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience, setIsLoadingIslandsCompleted, getIslandsCompleted}) => {
+const NameEntry = ({allUsers, 
+                  addName, 
+                  addUserId, 
+                  determineUserTotalExperience, 
+                  setIsLoadingIslandsCompleted, 
+                  getIslandsCompleted}) => {
 
   const submitName = (name) => {
     // addName sets the state "name"
@@ -33,7 +38,7 @@ const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience, 
       addUserId(idToAddToState);
 
       console.log("This user is in the database already");
-      console.log("the index that has got us here is " + index);
+      // console.log("the index that has got us here is " + index);
 
       // console.log("Their ID is " + idToAddToState);
 
@@ -41,7 +46,7 @@ const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience, 
       // here we should load the islandsCompleted for this user.
 
       setIsLoadingIslandsCompleted(true);
-      getIslandsCompleted();
+      getIslandsCompleted(idToAddToState);
 
     }
     else // we have a new user

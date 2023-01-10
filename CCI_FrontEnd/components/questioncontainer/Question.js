@@ -9,6 +9,7 @@ const Question = ({
     name,
     islandQuestions, 
     selectedIsland, 
+    userId,
     currentQuestion, 
     isQuestionAnswered,
     answerPicked,
@@ -19,7 +20,12 @@ const Question = ({
     assignIsQuestionAnswered,
     assignAnswerPicked,
     determineUserTotalExperience,
-    determineUserLevel
+    determineUserLevel,
+
+    islandsCompleted,
+    assignIslandsCompleted
+
+
 }) => {
 
     // This onPress is only called for the fill in the blank and multiple choice Qs
@@ -162,12 +168,18 @@ const Question = ({
                 </Text>
 
                 <FinishedBox 
-                assignIsQuestionAnswered={assignIsQuestionAnswered} 
-                currentQuestion={currentQuestion} 
-                assignCurrentQuestion={assignCurrentQuestion}
-                selectIsland={selectIsland}
-                textOfCorrectResponse={textOfCorrectResponse}
-                textOfAnswerPicked={textOfAnswerPicked}
+                    selectedIsland={selectedIsland}
+                    userId={userId}
+                    assignIsQuestionAnswered={assignIsQuestionAnswered} 
+                    currentQuestion={currentQuestion} 
+                    assignCurrentQuestion={assignCurrentQuestion}
+                    selectIsland={selectIsland}
+                    textOfCorrectResponse={textOfCorrectResponse}
+                    textOfAnswerPicked={textOfAnswerPicked}
+
+
+                    islandsCompleted = {islandsCompleted}
+                    assignIslandsCompleted = {assignIslandsCompleted}
                 />
 
             </SafeAreaView>

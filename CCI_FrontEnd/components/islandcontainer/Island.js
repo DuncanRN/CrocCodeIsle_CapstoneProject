@@ -11,12 +11,8 @@ const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
     assignCurrentQuestion(1)
   };
 
-  //In the above onPress function we need to 
-  // assign the current question more correctly
-
   const id = islandData[1]['id'];
   const islandName = islandData[1]['name']
-  //  duncan says - maybe we just pass the id down not the whole islandData
 
   return (
     <View style={styles.islandButtonContainer}>

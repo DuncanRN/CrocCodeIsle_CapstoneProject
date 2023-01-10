@@ -31,9 +31,11 @@ const MainContainer = () => {
   const [isLoadingAllUsers, setIsLoadingAllUsers] = useState(true); // this isLoading is to check we've loaded the island
   
   
-  const [isLoadingIslandsCompleted, setIsLoadingIslandsCompleted] = useState(true); // this isLoading is to check we've loaded the islandscompleted
+  const [isLoadingIslandsCompleted, setIsLoadingIslandsCompleted] = useState(false); // this isLoading is to check we've loaded the islandscompleted
+  // this is initially set to false. We will set it to true if we log in as an existing user.
+  // then the islandsCompleted will be loaded from the DB
+  // we set isLoadingIslandsCompleted to be true as we load
 
-  
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
   const [answerPicked, setAnswerPicked] = useState(null)
 
@@ -61,7 +63,7 @@ const MainContainer = () => {
 
     assignTopFiveUsers(UserService.getTop5Users());
 
-    getIslandsCompleted();
+    // getIslandsCompleted(); I want to only call this if we are signing in as an existing user
 
   }, [triggerReloadFromDB]);
 
@@ -84,8 +86,14 @@ const MainContainer = () => {
     )
   };
 
+
   const getIslandsCompleted = function(){
-    fetch("http://localhost:8080/islandscompleted/")
+    // I only want to get here if we can see the userId.
+    // do we passs in the user id from where we are seting the userID, don't take it from state
+    // take it as an arguement
+    console.log("about to fetch and userId is " + userId);
+
+    fetch("http://localhost:8080/islandscompleted/" + userId)
     .then(res => res.json())
     .then((data) => {  setIslandsCompleted(data); 
                         setIsLoadingIslandsCompleted(false); 
@@ -101,6 +109,7 @@ const MainContainer = () => {
   };
 
   function addUserId(id) {
+    console.log("WE ARE SETTING THE USER ID " )
     console.log("State (id) = " + id)
     tempUserId = setUserId(id)
   };
@@ -189,7 +198,7 @@ const MainContainer = () => {
   }
 
   if (isLoading || isLoadingAllUsers || isLoadingIslandsCompleted || !topFiveUsers) {
-    console.log("isLoading = true. App is most likely fetching data.");
+    // console.log("isLoading = true. App is most likely fetching data.");
     return(
       <SafeAreaView style={Style.progressField}>
         <Text style={Style.text}>Loading...</Text>
@@ -202,8 +211,6 @@ const MainContainer = () => {
   }
 
   else if (name == "") {
-    console.log("islandsCompleted");
-    console.log(islandsCompleted);
     return (
       <SafeAreaView style={styles.mainContainerNameEntryView}>
         <Logo />
@@ -211,13 +218,15 @@ const MainContainer = () => {
                     addName={addName} 
                     addUserId={addUserId} 
                     determineUserTotalExperience={determineUserTotalExperience}
+
+                    setIsLoadingIslandsCompleted = {setIsLoadingIslandsCompleted}
+                    getIslandsCompleted = {getIslandsCompleted}
                     />
       </SafeAreaView>
     );
   }
 
   else if (name != "" && language == "") {
-
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
@@ -308,6 +317,7 @@ const MainContainer = () => {
           name={name}
           islands={islands} 
           selectedIsland={selectedIsland} 
+          userId = {userId}
           currentQuestion={currentQuestion}
           isQuestionAnswered={isQuestionAnswered} 
           answerPicked={answerPicked}
@@ -319,6 +329,11 @@ const MainContainer = () => {
           assignAnswerPicked={assignAnswerPicked}
           determineUserTotalExperience={determineUserTotalExperience}
           determineUserLevel={determineUserLevel}
+
+
+
+          islandsCompleted= {islandsCompleted}
+          assignIslandsCompleted = {assignIslandsCompleted}
           />
       </SafeAreaView>
     );

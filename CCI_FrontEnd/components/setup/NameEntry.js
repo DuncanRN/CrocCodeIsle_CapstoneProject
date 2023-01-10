@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native';
 import Style from '../styles/Style';
 import UserService from '../services/UserService';
 
-const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience}) => {
+const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience, setIsLoadingIslandsCompleted, getIslandsCompleted}) => {
 
   const submitName = (name) => {
     // addName sets the state "name"
@@ -21,24 +21,62 @@ const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience})
     {
       // get points from DB
       scoreFromDB = allUsers[index]['points'];
-      console.log("scoreFromDB: ");
-      console.log(scoreFromDB);
+      // console.log("scoreFromDB: ");
+      // console.log(scoreFromDB);
       // put those points into state
       determineUserTotalExperience(scoreFromDB);
 
+      
+      // their id is one more than the index.
+      // given the assumption that no users can be deleted.
+      idToAddToState = index+1;
+      addUserId(idToAddToState);
+
+      console.log("This user is in the database already");
+      console.log("the index that has got us here is " + index);
+
+      // console.log("Their ID is " + idToAddToState);
+
+
+      // here we should load the islandsCompleted for this user.
+
+      setIsLoadingIslandsCompleted(true);
+      getIslandsCompleted();
+
     }
-    else
+    else // we have a new user
     {
       var points = 0;
       const user = {
         name,
         points
       }
-      // this adds the user to the database
-      UserService.addUser(user)
+
+      // console.log("heres what we are passing to UserService.addUser" + user);
+
+      // add the user to the database
+      returnFromAddUser = UserService.addUser(user)
+
+
+
+      // somewhat bodged fix. We find out how many users we have in the allUsers state.
+      // the new id is that plus 1.
+
+      const numberOfUsers = allUsers.length;
+
+      idToAddToState = numberOfUsers+1;
+      addUserId(idToAddToState);
+
+      // set islandsCompleted to empty, since this is a new user
 
     }
+
+
+
   };
+
+
+
 
   return (
     <View style={Style.field}>

@@ -19,8 +19,8 @@ public class UserController {
 
 
     @GetMapping(value = "/users")
-    public ResponseEntity getAllUsers(){
-        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity getAllUsersOrderByUserId(){
+        return new ResponseEntity<>(userRepository.findAllByOrderByIdAsc(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/users/top10")
@@ -64,8 +64,6 @@ public class UserController {
 
         User userFromDB = userRepository.findUserByName(user.getName());
 
-//        System.out.println(" userIdFromDB : " + userFromDB.getId());
-
         user.setId(userFromDB.getId());
 
         final User updatedUser = userRepository.save(user);
@@ -78,40 +76,42 @@ public class UserController {
     @PatchMapping(value = "users/points/{name}/{points}/")
     public ResponseEntity<User> partialUpdatePoints(@PathVariable("name") String name, @PathVariable("points") int points){
 
-        System.out.println("points: " + points );
-
         User user = userRepository.findUserByName(name);
-
-        System.out.println("user: " + user );
-
-        System.out.println("user.getName(): " + user.getName() );
 
         user.setPoints(points);
 
-        System.out.println("user.getPoints() NEW: " + user.getPoints() );
-
         final User updatedUser = userRepository.save(user);
-
 
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
-
-
     @PostMapping(value="/users")
     public ResponseEntity<User> postUser(@RequestBody User user){
         userRepository.save(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+
+        User userFromDB = userRepository.findUserByName(user.getName());
+
+        long userId = userFromDB.getId();
+
+        System.out.println("userId:  "+ userId);
+
+        // return new ResponseEntity<>(user, HttpStatus.CREATED);
+
+        return new ResponseEntity<>(userFromDB, HttpStatus.CREATED);
+
+//        return (userFromDB);
+
+        // I have changed line 90, from public ResponseEntitiy<User> to <Long> and change the return to have userId
+
+
+        // next steps
+
+        // try to return just userId not the whole response entitiy
+        // try to return the whole user
+        // but get it out of the database first
+        // we have that! userFromDB
+
     }
-
-//    @PatchMapping(value = "/pirates/{id}")
-//    public ResponseEntity<Pirate> updatePirate(@RequestBody Pirate pirate){
-//        pirateRepository.save(pirate);
-//        return new ResponseEntity<>(pirate, HttpStatus.OK);
-//    }
-
-
-
 
 }

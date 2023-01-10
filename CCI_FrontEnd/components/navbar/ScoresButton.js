@@ -27,11 +27,9 @@ const onPress = () => {
     // so our useEffect wasn't being triggered the second time. 
     // hence the random number.
 
-    console.log("3");
-
     assignViewScoreTo(true);
 
-    // here we want to trigger the useEffect in MainContainer to reloa the 
+    // here we want to trigger the useEffect in MainContainer to reload the 
     // scores so our highscores are up to date
 
 };

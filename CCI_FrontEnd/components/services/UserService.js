@@ -17,16 +17,19 @@ const UserService = {
     },
 
     
-    addUser(payload) {
-        console.log("Payload before stringification = " + payload)
-        console.log("JSON Stringified = " +JSON.stringify(payload))
+    async addUser(payload) {
+        // console.log("Payload before stringification = " + payload)
+        // console.log("JSON Stringified = " + JSON.stringify(payload))
 
-        return fetch(baseUsersURL, {
+        return await fetch(baseUsersURL, {
             method: 'POST',
             body: JSON.stringify(payload),
             headers: { 'Content-Type': 'application/json' }
         })
         .then(res => res.json())
+
+
+        
     },
 
     updateUser(user, name) {

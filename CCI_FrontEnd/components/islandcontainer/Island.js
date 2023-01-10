@@ -4,7 +4,7 @@ import Style from '../styles/Style';
 import island from '../assets/island.png';
 import drawnIsland from '../assets/NewIsland.png'
 
-const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
+const Island = ({islandData, align, selectIsland, assignCurrentQuestion }) => {
 
   const onPress = (id) => {
     selectIsland(id)
@@ -14,8 +14,10 @@ const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
   const id = islandData[1]['id'];
   const islandName = islandData[1]['name']
 
+  // console.log("INSIDE ISLAND, key - " + key);
+
   return (
-    <View style={styles.islandButtonContainer}>
+    <View style={styles.islandButtonContainer} key={id}>
 
         <Image style={Style.IslandButton} source = {drawnIsland} />
 

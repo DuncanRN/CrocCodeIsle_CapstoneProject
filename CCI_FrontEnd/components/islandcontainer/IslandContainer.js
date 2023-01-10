@@ -28,31 +28,31 @@ const IslandContainer = ({islands,
 
             thisIslandID = islandData[1]['id'];
             
+            console.log("in island container, index - " + index);
 
             // console.log("in island view, here is islandsCompleted : " + islandsCompleted);
-
             // console.log("in island view, here is completedIslandsArray : " + completedIslandsArray);
             // console.log("and I am testing if that contains " + previousIslandId);
             if(previousIslandId == -1 || completedIslandsArray.includes(previousIslandId.toString()))
             {
+                // var key = Math.random();
+                // console.log("KEY - " + key);
                 // console.log("we should be displaying island id " + thisIslandID);
                 previousIslandId = thisIslandID;
                 return (
-                    <Island 
-                        islandData={islandData} 
-                        key={index} 
-                        align={align}
-
-                        selectIsland={selectIsland} 
-                        assignCurrentQuestion={assignCurrentQuestion} />  
-                
-
+                        <Island 
+                            key={thisIslandID.toString()} 
+                            islandData={islandData} 
+                            align={align}
+                            selectIsland={selectIsland} 
+                            assignCurrentQuestion={assignCurrentQuestion} 
+                            />  
                 )
             }
             else{
                 previousIslandId = thisIslandID;
                 return (
-                    <Image source={Padlock} style={Style.Padlock} />
+                    <Image key={thisIslandID} source={Padlock} style={Style.Padlock} />
                 )
             }
 
@@ -122,7 +122,7 @@ const IslandContainer = ({islands,
     });
 
     return (
-        <ScrollView style={Style.islandContainer}>
+        <ScrollView style={Style.islandContainer} >
             {islandItems}
         </ScrollView>
     );

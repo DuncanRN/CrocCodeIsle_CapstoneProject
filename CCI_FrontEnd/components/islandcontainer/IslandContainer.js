@@ -14,7 +14,6 @@ const IslandContainer = ({islands,
 
     var previousIslandId = -1; 
     var completedIslandsArray = islandsCompleted.toString().split(',');
-    // console.log("completedIslandsArray : " + completedIslandsArray);
 
     const islandToMap = Object.entries(islands)
     const islandItems= islandToMap.map((islandData, index) => {
@@ -28,16 +27,9 @@ const IslandContainer = ({islands,
 
             thisIslandID = islandData[1]['id'];
             
-            console.log("in island container, index - " + index);
-
-            // console.log("in island view, here is islandsCompleted : " + islandsCompleted);
-            // console.log("in island view, here is completedIslandsArray : " + completedIslandsArray);
-            // console.log("and I am testing if that contains " + previousIslandId);
             if(previousIslandId == -1 || completedIslandsArray.includes(previousIslandId.toString()))
             {
-                // var key = Math.random();
-                // console.log("KEY - " + key);
-                // console.log("we should be displaying island id " + thisIslandID);
+                
                 previousIslandId = thisIslandID;
                 return (
                         <Island 
@@ -55,67 +47,7 @@ const IslandContainer = ({islands,
                     <Image key={thisIslandID} source={Padlock} style={Style.Padlock} />
                 )
             }
-
-        
-
             
-
-            // ----
-
-            // if(userTotalExperience>80 )
-            // {
-            //     return (
-            //         <Island 
-            //             islandData={islandData} 
-            //             key={index} 
-            //             align={align}
-
-            //             selectIsland={selectIsland} 
-            //             assignCurrentQuestion={assignCurrentQuestion} />  
-                
-
-            //     )
-            // }
-            
-            // else if(thisIslandID==1 || thisIslandID==4)
-            // {
-
-            //     return (
-            //         <Island 
-            //             islandData={islandData} 
-            //             key={index} 
-            //             align={align}
-
-            //             selectIsland={selectIsland} 
-            //             assignCurrentQuestion={assignCurrentQuestion} />  
-                
-
-            //     )
-            // }
-            // else if(thisIslandID==2 && userTotalExperience>40)
-            // {
-
-            //     return (
-            //         <Island 
-            //             islandData={islandData} 
-            //             key={index} 
-            //             align={align}
-
-            //             selectIsland={selectIsland} 
-            //             assignCurrentQuestion={assignCurrentQuestion} />  
-                
-
-            //     )
-            // }
-            // else{
-            //     return (
-            //         // <Text>PADLOCKED ISLAND</Text>
-            //         <Image source={Padlock}  style={Style.Padlock} />
-            //     )
-            // }
-
-
-
         }
 
 

@@ -16,25 +16,94 @@ const Island = ({islandData, align, selectIsland, assignCurrentQuestion }) => {
 
   // console.log("INSIDE ISLAND, key - " + key);
 
-  return (
-    <View style={styles.islandButtonContainer} key={id}>
 
-        <Image style={Style.IslandButton} source = {drawnIsland} />
+  // console.log("INSIDE ISLAND, align - " + align);
+  if(align == "left")
+  {
+    return (
 
-        <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
-          onPress={(event) => onPress(id)}>
-              <Text style={styles.text}>
-                {islandName}
-              </Text>
-        </Pressable>
+      <View style={styles.islandButtonContainerLeft} key={id}>
 
-    </View>
-  );
+          <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
+            onPress={(event) => onPress(id)}>
+
+                <Image style={Style.IslandButton} source = {drawnIsland} />
+
+                <Text style={styles.text}>
+                  {islandName}
+                </Text>
+          </Pressable>
+
+      </View>
+    );
+  }
+  else if(align=="right")
+  {
+
+    return (
+
+      <View style={styles.islandButtonContainerRight} key={id}>
+
+          <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
+            onPress={(event) => onPress(id)}>
+
+                <Image style={Style.IslandButton} source = {drawnIsland} />
+
+                <Text style={styles.text}>
+                  {islandName}
+                </Text>
+          </Pressable>
+
+      </View>
+    );
+
+
+  }
+  else 
+  {
+
+    return (
+
+      <View style={styles.islandButtonContainerCenter} key={id}>
+
+          <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
+            onPress={(event) => onPress(id)}>
+
+                <Image style={Style.IslandButton} source = {drawnIsland} />
+
+                <Text style={styles.text}>
+                  {islandName}
+                </Text>
+          </Pressable>
+
+      </View>
+    );
+
+
+  }
+
+
+
+
 };
 
 const styles = StyleSheet.create({
 
-  islandButtonContainer: {
+  islandButtonContainerLeft: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
+
+  islandButtonContainerRight: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+
+  islandButtonContainerCenter: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -42,21 +111,22 @@ const styles = StyleSheet.create({
   },
 
     islandButton: {
-      height: 100,
-      width: 120,
+      height: 290,
+      width: 180,
       padding: 0,
-      marginRight: 20,
-      borderColor: 'black',
-      borderWidth: 3,
+      marginRight: 10,
+      // borderColor: 'black',
+      // borderWidth: 3,
       borderRadius: 20,
       textAlign: 'center',
+      alignContent: 'center',
       justifyContent: 'center',
-      backgroundColor: '#FFDF50'
+      // backgroundColor: '#FFDF50'
 
     },
   
     pressed: {
-      backgroundColor: 'lime'
+      backgroundColor: '#528AAE'
     },
 
     text: {

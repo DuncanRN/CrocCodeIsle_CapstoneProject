@@ -256,22 +256,22 @@ public class DataLoader implements ApplicationRunner {
 
         // USERS
 
-        User user1 = new User("Octopus", 90);
+        User user1 = new User("Octopus", 12);
         userRepository.save(user1);
 
-        User user2 = new User("Seahorse", 120);
+        User user2 = new User("Seahorse", 35);
         userRepository.save(user2);
 
-        User user3 = new User("Starfish", 60);
+        User user3 = new User("Starfish", 31);
         userRepository.save(user3);
 
-        User user4 = new User("Blowfish", 40);
+        User user4 = new User("Blowfish", 23);
         userRepository.save(user4);
 
-        User user5 = new User("Shrimp", 30);
+        User user5 = new User("Shrimp", 20);
         userRepository.save(user5);
 
-        User user6 = new User("Squid", 95);
+        User user6 = new User("Squid", 15);
         userRepository.save(user6);
 
         IslandsCompleted duncanFinishedIslandOne = new IslandsCompleted(user1, questionIsland1);

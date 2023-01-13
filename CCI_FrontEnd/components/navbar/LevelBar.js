@@ -90,7 +90,7 @@ const LevelBar = ({
 const styles = (props) => StyleSheet.create ({
 
     levelUpButton: {
-        backgroundColor: '#f4e4f4',
+        backgroundColor: '#FAE3D9',
         width: 180,
         height: 80,
         borderWidth: 3,
@@ -118,7 +118,7 @@ const styles = (props) => StyleSheet.create ({
         width: '100%',
         height: 60,
         borderColor: 'black',
-        backgroundColor: 'antiquewhite',
+        backgroundColor: '#FAE3D9',
         borderWidth: 3,
         borderRadius: 10,
         flexDirection: 'row',
@@ -128,14 +128,14 @@ const styles = (props) => StyleSheet.create ({
         width: '66%',
         borderColor: 'black',
         borderRadius: 8,
-        backgroundColor: 'lime',
+        backgroundColor: '#FAE3D9',
         borderWidth: 2,
         marginBottom: 10
     },
 
     experienceBar: {
         height: 54,
-        backgroundColor: 'lime',
+        backgroundColor: '#4BBC', // 4BBC   AFF690  61COBF
         borderRadius: 10,
         flexDirection: 'row',
         width: props + '%',

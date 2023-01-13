@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, SafeAreaView, View, Pressable, StyleSheet, TextInput} from 'react-native';
+import {Text, SafeAreaView, View, Pressable, StyleSheet, TextInput, TouchableWithoutFeedback} from 'react-native';
 import Style from '../styles/Style';
 import FinishedBox from './FinishedBox';
 import LevelDeterminer from '../services/LevelDeterminer';
@@ -273,11 +273,13 @@ const styles = StyleSheet.create({
     },
 
     questionCodeView: {
-        backgroundColor: '#eeeeee',
+        backgroundColor: '#AFF690',   //61C0BF   BBDED6  FFB6B9 4BBCF4  FAE3D9
         borderTopColor: 'black',
         borderBottomColor: 'black',
         borderTopWidth: 3,
         borderBottomWidth: 3,
+        borderRadius: 8,
+        textColor: '#FFFFFF'
     },
 
     questionCodeText: {
@@ -302,7 +304,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         borderRadius: 15,
-        backgroundColor: '#FFDF50',
+        backgroundColor: '#FAE3D9',  //61C0BF   BBDED6  FFB6B9 4BBCF4  FAE3D9
         textAlign: 'center',
         justifyContent: 'center',
         textColor: 'black',
@@ -315,7 +317,7 @@ const styles = StyleSheet.create({
         width: 220,
         fontSize: 22,
         color: 'black',
-        backgroundColor: 'white',
+        backgroundColor: '#FAE3D9',
         borderRadius: 20,
         textAlign: 'center',
         alignContent: 'center',

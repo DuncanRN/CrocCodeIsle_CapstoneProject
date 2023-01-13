@@ -15,5 +15,4 @@ public interface IslandsCompletedRepository extends JpaRepository<IslandsComplet
     @Query(value = "SELECT island_id FROM islands_completed WHERE user_id = ?1", nativeQuery = true)
     ArrayList<Integer> findIDOfIslandsCompletedByUser(long user_id);
 
-
 }

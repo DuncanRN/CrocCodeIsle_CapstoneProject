@@ -74,7 +74,7 @@ const FinishedBox = ({
                 <Pressable
                     style={styles.moveOnButton}
                     onPress={(event) => onPress()}>
-                        <Text style={Style.text}>
+                        <Text style={styles.textBold}>
                             Move on!
                         </Text>
                 </Pressable>
@@ -101,7 +101,7 @@ const FinishedBox = ({
                         style={styles.moveOnButton}
                         onPress={(event) => onPress()}>
 
-                            <Text style={Style.text}>
+                            <Text style={styles.textBold}>
                                 Continue
                             </Text>
                     </Pressable>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         marginTop: '15%',
         marginLeft: '39%',
         marginRight: '39%',
-        backgroundColor: '#FFDF50',
+        backgroundColor: '#4BBC',   //61C0BF   BBDED6  FFB6B9 4BBCF4  FAE3D9
         width: 140,
         height: 80,
         borderWidth: 3,
@@ -147,6 +147,15 @@ const styles = StyleSheet.create({
             textAlign: 'center',
         },
 
+        textBold: {
+            paddingTop: 0,
+            fontSize: 25,
+            textAlign: 'center',
+            fontWeight: 'bold'
+        },
+
+
+        
 })
 
 export default FinishedBox;

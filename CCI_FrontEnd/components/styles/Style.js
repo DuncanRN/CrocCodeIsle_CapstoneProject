@@ -7,7 +7,9 @@ export default Style = StyleSheet.create({
         flex: 2,
         // justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#5dade2'
+        backgroundColor: '#4BBCF4'
+
+        // '#FAE3D9',  //61C0BF   BBDED6  FFB689 4BBCF4
       },
     
     questionContainer: {
@@ -17,7 +19,7 @@ export default Style = StyleSheet.create({
       bottom: 0,
       top: 0,
       marginTop: 150,
-      backgroundColor: '#00ccff',
+      backgroundColor: '#BBDED6',
       borderWidth: 3,
       borderColor: 'black',
       borderRadius: 10,
@@ -66,6 +68,8 @@ export default Style = StyleSheet.create({
       textAlign: 'center',
     },
 
+    
+
     navBarContainer: {
       position: 'absolute',
       top: 0,
@@ -79,7 +83,7 @@ export default Style = StyleSheet.create({
     },
 
     navBarButton: {
-      backgroundColor: '#f4e4f4',
+      backgroundColor: '#FAE3D9', // f4e4f4
       width: 80,
       height: 80,
       borderWidth: 3,
@@ -106,14 +110,14 @@ export default Style = StyleSheet.create({
     TrophyLogoLarge: {
       width: 200,
       height: 200,
-      margin: 40,
+      margin: 60,
       
       resizeMode: 'cover',
       
     },
 
     IslandButton: {
-      width: 200,
+      width: 170,
       height: 200,
       margin: 10,
       resizeMode: 'contain',
@@ -132,7 +136,7 @@ export default Style = StyleSheet.create({
       width: '80%',
       height: 40,
       borderColor: 'black',
-      backgroundColor: 'antiquewhite',
+      backgroundColor: '#FAE3D9',
       borderWidth: 3,
       borderRadius: 10,
       flexDirection: 'row',

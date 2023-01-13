@@ -9,7 +9,7 @@ const UserLevelUpPage = ({userTotalExperience, userLevel, assignLevelUpButtonPre
         assignLevelUpButtonPressed(false)
     }
 
-  return (
+    return (
     <SafeAreaView style={styles.allLevelsContainer}>
 
         <ScrollView>

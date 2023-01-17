@@ -93,29 +93,54 @@ const Question = ({
     const questionToShow = islandQuestions[currentQuestion];
     
     const islandQuestionsToMap = Object.entries(islandQuestions)
-    const islandQuestionItems = islandQuestionsToMap.map((questionData, index) => {
 
-        if(currentQuestion == questionData[1]['question_position']) {
+    // const islandQuestionItems = islandQuestionsToMap.map((questionData, index) => {
+
+    //     if(currentQuestion == questionData[1]['question_position']) {
             
-            return (
-                questionData[1]
-            )
-        };
+    //         return (
+    //             questionData[1]
+    //         )
+    //     };
+    // });
+
+    // realised filter is better than map here!
+    let islandQuestionItems = islandQuestionsToMap.filter(function (q) {
+        return q[1]['question_position'] == currentQuestion;
     });
 
-    // We have small concerns with this current question-1 solution
-    // the data is coming back [data we want, undefined, undefined]
-    // then [undefined, data we want, undefined]......
 
-    var questionText = islandQuestionItems[currentQuestion-1]['question_text']
-    var response1 = islandQuestionItems[currentQuestion-1]['response1']
-    var response2 = islandQuestionItems[currentQuestion-1]['response2']
-    var response3 = islandQuestionItems[currentQuestion-1]['response3']
-    var response4 = islandQuestionItems[currentQuestion-1]['response4']
-    var correctResponse = islandQuestionItems[currentQuestion-1]['correct_response']
-    var questionType = islandQuestionItems[currentQuestion-1]['question_type']
-    var questionCode = islandQuestionItems[currentQuestion-1]['question_code']
-    var questionPoints = islandQuestionItems[currentQuestion-1]['points_value']
+
+    // console.log("currentQuestion - " + currentQuestion);
+
+    // console.log("islandQuestionItems - " + islandQuestionItems);
+    // console.log("islandQuestionItems[0] - " + islandQuestionItems[0]);
+
+    // console.log("islandQuestionItems[0][0] - " + islandQuestionItems[0][0]);
+
+    // console.log("islandQuestionItems[0][1] - " + islandQuestionItems[0][1]);
+
+
+    // console.log("islandQuestionItems[2] - " + islandQuestionItems[2]);
+
+    // console.log(Object.keys(islandQuestionItems));
+
+    // console.log("that was keys of islandQuestionItems")
+
+
+    islandQuestionItems[0][1]
+
+
+    var questionText = islandQuestionItems[0][1]['question_text']
+
+    var response1 = islandQuestionItems[0][1]['response1']
+    var response2 = islandQuestionItems[0][1]['response2']
+    var response3 = islandQuestionItems[0][1]['response3']
+    var response4 = islandQuestionItems[0][1]['response4']
+    var correctResponse = islandQuestionItems[0][1]['correct_response']
+    var questionType = islandQuestionItems[0][1]['question_type']
+    var questionCode = islandQuestionItems[0][1]['question_code']
+    var questionPoints = islandQuestionItems[0][1]['points_value']
 
     var textOfCorrectResponse;
     var textOfAnswerPicked;

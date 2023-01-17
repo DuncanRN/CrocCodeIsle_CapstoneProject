@@ -35,6 +35,22 @@ const UserService = {
     updateUser(user, name) {
         var stringedName = name.toString()
 
+        console.log("In updateUser, user is about to be JSON.stringifi ed " + user);
+
+        console.log(Object.keys(user));
+
+        console.log("that was keys of user")
+
+        console.log("user['name'] : " + user['name']);
+        console.log("user['points'] : " + user['points']);
+
+        // So user here is 
+        // user= {
+        //     'name' : 'Croc',
+        //     'points' : 40
+        // }
+        // and we JSON.stringify that
+
         return fetch(baseUsersURL, {
         method: 'PUT',
         body: JSON.stringify(user),

@@ -19,7 +19,8 @@ public class QuestionController {
 
     @GetMapping(value = "/questions")
     public ResponseEntity getAllQuestions(){
-        return new ResponseEntity<>(questionRepository.findAll(), HttpStatus.OK);
+
+        return new ResponseEntity<>(questionRepository.findAllByOrderByIdAsc(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/questions/{id}")
@@ -52,7 +53,4 @@ public class QuestionController {
 
         return new ResponseEntity<>(question, HttpStatus.OK);
     }
-
-
-//
 }

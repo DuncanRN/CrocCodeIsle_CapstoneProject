@@ -1,6 +1,7 @@
 package com.codeclan.CrocCodeIsleService.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -8,12 +9,19 @@ import javax.persistence.*;
 @Table(name="questions")
 public class Question {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JsonBackReference
+//    @JsonIgnoreProperties("question_island_id")
+
+    // this issuse is HERE1 or
+
+
     @JoinColumn(name = "question_island_id", nullable = false)
     private QuestionIsland questionIsland;
 

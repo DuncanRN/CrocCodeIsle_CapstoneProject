@@ -8,15 +8,11 @@ import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question, Long>{
 
-
+    List<Question>  findAllByOrderByIdAsc();
     List<Question> findQuestionByQuestionIslandId(long id);
     List<Question> getByQuestionIsland(long islandId);
 
 //    List<Question> findQuestionByQuestionText(String s);
-
-
-    // IS the big problem the _ 's in the database column names!?
-
 
 //    List<Question> getQuestionByPointsValue(Integer p);
 
@@ -25,8 +21,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long>{
 //    List<Question> findQuestionByQuestionText(String text);
 //    List<Question> findByQuestionText(String text);
 //    List<Question> findQuestionByQuestionText(String text);
-
-
 
 //    List<Question> findQuestionByQuestionIslandId(long id);
 
